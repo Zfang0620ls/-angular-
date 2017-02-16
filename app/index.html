@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="movie">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>My AngularJS App</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="base.css">
+	<link rel="stylesheet" href="app.css">
+</head>
+<body>
+	<div class="title">豆瓣电影</div>
+	<div class="main">
+		<form class="search" ng-controller='searchController' ng-submit='search()'>
+			<span class="icon-ser"></span>
+			<input type="search" placeholder="搜索" ng-model='input'>
+		</form>
+		<div class="content" ng-view></div>
+	</div>
+	<div class="tab">
+		<ul>
+			<li auto-focus><a href="#/in_theaters">正在上映</a></li>
+			<li auto-focus><a href="#/coming_soon">即将上映</a></li>
+			<li auto-focus><a href="#/top250">TOP250</a></li>
+			<!-- <li auto-focus><a href="#">我的设置</a></li> -->
+		</ul>
+	</div>
+
+
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<!-- 主模块 -->
+	<script src="app.js"></script>
+	<script src="components/auto-focus.js"></script>
+	<!-- $http模块 -->
+	<script src="components/http.js"></script>
+	<!-- 其它组成模块 -->
+	<script src="movie-detail/controller.js"></script>
+	<script src="movie-list/controller.js"></script>
+
+</body>
+</html>

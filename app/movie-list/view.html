@@ -1,0 +1,55 @@
+<h1 class="title-view" ng-show="!loading">{{title}}<em>(共{{totalCount}}条记录)</em></h1>
+<h3 ng-if="message">{{message}}</h3>
+<div class="list-group"  infinite-scroll="getMore()" infinite-scroll-disabled='busy' infinite-scroll-distance='1'>
+	<a ng-repeat="item in subjects" href="#/detail/{{item.id}}" class="list-group-item">
+		<div class="media">
+		  <div class="pull-left" href="#/detail/{{item.id}}">
+		    <img class="media-object" ng-src="{{item.images.small}}" alt="{{item.title}}" height="128">
+		  </div>
+		  <div class="media-body">
+		    <h3 class="media-heading">{{item.title}}</h3>
+		    <p>
+		    	类型:<span>{{item.genres.join(', ')}}</span>
+		    </p>
+		    <p>
+		    	上映年份:<span>{{item.year}}</span>
+		    </p>
+		    <p>
+		    	导演:<span ng-repeat=" d in item.directors">{{d.name+($last?'':'、 ')}}</span>
+		    </p>
+		    <p>
+		    	主演:<span ng-repeat="c in item.casts">{{c.name+($last?'':'、 ')}}</span>
+		    </p>
+		  </div>
+		</div>
+  </a>
+  <!-- <div>
+		<div class="more" ng-click="go(count)">点击查看更多</div>
+	</div> -->
+</div>
+<div class="kong"></div>
+<!-- 加载动画 -->
+<div class="loading" ng-show="loading">
+    <div class="spinner">
+        <div class="spinner-container container1">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container2">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container3">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+    </div>
+</div>
+
+
